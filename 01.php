@@ -6,6 +6,55 @@
     <title> PHP harjutused</title>
 </head>
 <body>
+
+<h1>Harjutus04</h1>
+<?php
+$p = 7;
+switch ($p) {
+    case ($p > 10):
+        echo "SUPER!";
+       
+        break;
+        case ($p>=5 && $p<=9):
+        echo "TEHTUD!";
+        break;
+        case ($p<5):
+        echo "KASIN!";
+        break;
+    
+    default:
+    echo "Punkte pole lisatud";
+      
+        break;
+}
+
+?>
+
+
+
+// Juubel kasutaja lisab sünniaasta ning kood väljastab, kas tegemist on juubeliaastaga. Lisa kontroll, mis ei käivita koodi tühjase lahtrite puhul.
+<form action="" method="get";>
+    Lisa sünniaasta: <input type="number" name="synd" min="1900" max="2100" placeholder="2000">
+    <input type="submit" value="Leia juubel"><br>
+</form>  
+<?php
+if (!empty($_GET['synd'])) {
+    $aasta = $_GET['synd']; //tüübi sünd
+    $seeAasta = date('Y'); //käesolev aasta
+    $vanus = $seeAasta - $aasta; //vanus
+    var_dump($vanus); //testimiseks print_r($vanus)
+    if ($vanus % 5 == 0) { //jääk, et leida juubel
+        echo "Sul juubel";
+    } else {
+        echo "Ei ole juubel";
+    }
+    # code...
+}
+
+?>
+
+
+
     <h1>Harjutus04</h1>
     <?php
     $nr1 = 5;
