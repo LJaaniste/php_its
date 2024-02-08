@@ -13,11 +13,12 @@ $p = 7;
 switch ($p) {
     case ($p > 10):
         echo "SUPER!";
-       
         break;
+
         case ($p>=5 && $p<=9):
         echo "TEHTUD!";
         break;
+        
         case ($p<5):
         echo "KASIN!";
         break;
