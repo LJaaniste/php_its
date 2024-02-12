@@ -46,17 +46,88 @@
           </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Avaleht</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="Avaleht.html">Avaleht</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Tooted</a></li>
-            <li class="nav-item"><a class="nav-link"  href="teenused.html">Teenused</a></li>
+            <li class="nav-item"><a class="nav-link active"  href="teenused.html">Teenused</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Kontakt</a></li>
             </ul>
             <button type="button" class="btn btn-primary mx-lg-2 my-2 d-xs-block">Login</button>
           </div> 
           </nav>
-          </div>
-              
+          </div>  
         </div>
+      </div>
+
+      <div class="container">
+        <br>
+        <h2>Teenuse kalkulaator</h2>
+
+        <?php
+            // Kalkulaatori loogika
+            $error_message = '';
+            $result = '';
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                // Kogu sisestatud andmed
+                $input_value1 = $_POST['input_value1'];
+                $input_value2 = $_POST['input_value2'];
+                $select_option = $_POST['select_option']; // Näide rippmenüüst
+
+                // Kontroll, kas väljad on täidetud
+                if ($input_value1 !== '' && $input_value2 !== '') {
+                    // Lihtne kalkulatsioon (võib olla keerulisem sõltuvalt teenusest)
+                    $result = $input_value1 * $input_value2;
+                } else {
+                    $error_message = 'Viga: Vormi täitmiseks on vajalikud kõik väljad.';
+                }
+            }
+            ?>
+
+            <!-- Vormi kuvamine -->
+            <form action="" method="post">
+
+                <div class="form-group">
+                    <label for="select_option">Kasutatud sülearvutite hinnapakkumine</label>
+                    <br>
+                    <select class="form-control" id="select_option" name="select_option">
+                        <option value="0"></option>
+                        <option value="1">Dell Latitude 5400</option>
+                        <option value="2">Lenovo ThinkdPad T14s</option>
+                        <option value="3">Fujitsu Lifebook E459</option>
+                    </select>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="input_value1">Hind</label>
+                    <input type="number" class="form-control" id="input_value1" name="input_value1" required>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="input_value2">Kogus</label>
+                    <input type="number" class="form-control" id="input_value2" name="input_value2" required>
+                </div>
+               <br>
+                
+
+                <button type="submit" class="btn btn-primary">Arvuta</button>
+            </form>
+
+            <!-- Kalkulatsiooni tulemus või vead -->
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if ($result !== '') {
+                    echo '<div class="alert alert-success mt-4" role="alert">Tulemus: ' . $result . '</div>';
+                } elseif ($error_message !== '') {
+                    echo '<div class="alert alert-danger mt-4" role="alert">' . $error_message . '</div>';
+                }
+            }
+            ?>
+        </div>
+
+
+
       </div>
 
 
@@ -72,5 +143,8 @@
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy1q5L4LOhG9cAtI/KD5SBrXbYB/JQOp6u" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   </body>
 </html>
