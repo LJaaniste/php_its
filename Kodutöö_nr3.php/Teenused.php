@@ -114,13 +114,13 @@
 
                 <div class="form-group">
                     <label for="input_value1">Hind €</label>
-                    <input type="number" class="form-control" id="input_value1" name="input_value1" required min="0">
+                    <input type="number" class="form-control" id="input_value1" name="input_value1" required min="1">
                 </div>
                 <br>
 
                 <div class="form-group">
                     <label for="input_value2">Kogus</label>
-                    <input type="number" class="form-control" id="input_value2" name="input_value2" required min="0">
+                    <input type="number" class="form-control" id="input_value2" name="input_value2" required min="1">
                 </div>
                <br>
                 
