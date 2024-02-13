@@ -73,10 +73,24 @@
                 $input_value2 = $_POST['input_value2'];
                 $select_option = $_POST['select_option']; // Näide rippmenüüst
 
+                //Piirangud negatiivse väärtuse jaoks
+                $input_value1 = max(0, $input_value1);
+                $input_value2 = max(0, $input_value2);
+
+
                 // Kontroll, kas väljad on täidetud
                 if ($input_value1 !== '' && $input_value2 !== '') {
-                    // Lihtne kalkulatsioon 
-                    $result = $input_value1 * $input_value2;
+                  // Kui on valitued "Vali siit", annab veateate
+                  if ($select_option === 'Vali siit') {
+                    $error_message = 'Viga';
+                  } else {
+                    // Kalkulatsioon (korrutamine) 
+                    $result = number_format($input_value1 * $input_value2) . ' €';
+                    // Kui on valitud sülearvutite vahel
+                    if ($select_option !== '') {
+                      $result .= ' (' . $select_option . ')';
+                    }
+                  }  
                 } else {
                     $error_message = 'Viga: Vormi täitmiseks on vajalikud kõik väljad.';
                 }
@@ -90,23 +104,23 @@
                     <label class="mb-4" for="select_option">Kasutatud sülearvutite hinnapakkumine</label>
                     <br>
                     <select class="form-control" id="select_option" name="select_option">
-                        <option value="1">Kasutatud sülearvutid</option>
-                        <option value="2">Dell Latitude 5400</option>
-                        <option value="3">Lenovo ThinkdPad T14s</option>
-                        <option value="4">Fujitsu Lifebook E459</option>
+                        <option value="Vali siit">Vali siit</option>
+                        <option value="Dell Latitude 5400">Dell Latitude 5400</option>
+                        <option value="Lenovo ThinkPad T14s">Lenovo ThinkdPad T14s</option>
+                        <option value="Fujitsu Lifebook E459">Fujitsu Lifebook E459</option>
                     </select>
                 </div>
                 <br>
 
                 <div class="form-group">
                     <label for="input_value1">Hind €</label>
-                    <input type="number" class="form-control" id="input_value1" name="input_value1" required>
+                    <input type="number" class="form-control" id="input_value1" name="input_value1" required min="0">
                 </div>
                 <br>
 
                 <div class="form-group">
                     <label for="input_value2">Kogus</label>
-                    <input type="number" class="form-control" id="input_value2" name="input_value2" required>
+                    <input type="number" class="form-control" id="input_value2" name="input_value2" required min="0">
                 </div>
                <br>
                 
@@ -117,7 +131,7 @@
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($result !== '') {
-                    echo '<div class="alert alert-success mt-4" role="alert">KOKKU: ' . $result . ' €</div>';
+                    echo '<div class="alert alert-success mt-4" role="alert">KOKKU: ' . $result . ' </div>';
                 } elseif ($error_message !== '') {
                     echo '<div class="alert alert-danger mt-4" role="alert">' . $error_message . '</div>';
                 }
