@@ -99,7 +99,7 @@
                 <br>
 
                 <div class="form-group">
-                    <label for="input_value1">Hind</label>
+                    <label for="input_value1">Hind €</label>
                     <input type="number" class="form-control" id="input_value1" name="input_value1" required>
                 </div>
                 <br>
@@ -117,7 +117,7 @@
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($result !== '') {
-                    echo '<div class="alert alert-success mt-4" role="alert">Tulemus: ' . $result . '</div>';
+                    echo '<div class="alert alert-success mt-4" role="alert">KOKKU: ' . $result . ' €</div>';
                 } elseif ($error_message !== '') {
                     echo '<div class="alert alert-danger mt-4" role="alert">' . $error_message . '</div>';
                 }
