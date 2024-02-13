@@ -48,7 +48,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Avaleht</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Tooted</a></li>
-            <li class="nav-item"><a class="nav-link active"  href="teenused.html">Teenused</a></li>
+            <li class="nav-item"><a class="nav-link active"  href="teenused.php">Teenused</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Kontakt</a></li>
             </ul>
             <button type="button" class="btn btn-primary mx-lg-2 my-2 d-xs-block">Login</button>
@@ -75,7 +75,7 @@
 
                 // Kontroll, kas väljad on täidetud
                 if ($input_value1 !== '' && $input_value2 !== '') {
-                    // Lihtne kalkulatsioon (võib olla keerulisem sõltuvalt teenusest)
+                    // Lihtne kalkulatsioon 
                     $result = $input_value1 * $input_value2;
                 } else {
                     $error_message = 'Viga: Vormi täitmiseks on vajalikud kõik väljad.';
@@ -84,7 +84,7 @@
             ?>
 
             <!-- Vormi kuvamine -->
-            <form action="" method="post">
+            <form action="" method="POST">
 
                 <div class="form-group">
                     <label class="mb-4" for="select_option">Kasutatud sülearvutite hinnapakkumine</label>
@@ -110,7 +110,6 @@
                 </div>
                <br>
                 
-
                 <button type="submit" class="btn btn-primary">Arvuta</button>
             </form>
 
