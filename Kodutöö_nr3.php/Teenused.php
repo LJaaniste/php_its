@@ -80,7 +80,7 @@
 
                 // Kontroll, kas väljad on täidetud
                 if ($input_value1 !== '' && $input_value2 !== '') {
-                  // Kui on valitued "Vali siit", annab veateate
+                  // Kui on valitud "Vali siit", annab veateate
                   if ($select_option === 'Vali siit') {
                     $error_message = 'Viga';
                   } else {
