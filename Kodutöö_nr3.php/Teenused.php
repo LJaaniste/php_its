@@ -48,7 +48,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Avaleht</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Tooted</a></li>
-            <li class="nav-item"><a class="nav-link active"  aria-current="page" href="Teenused.php">Teenused</a></li>
+            <li class="nav-item"><a class="nav-link active"  aria-current="page" href="teenused.php">Teenused</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Kontakt</a></li>
             </ul>
             <button type="button" class="btn btn-primary mx-lg-2 my-2 d-xs-block">Login</button>
