@@ -58,7 +58,7 @@
         </div>
       </div>
 
-      <div class="container">
+      <div class="container mt-5">
         <br>
         <h2 class="mb-4">Teenuse kalkulaator</h2>
 
@@ -84,16 +84,16 @@
             ?>
 
             <!-- Vormi kuvamine -->
-            <form action="kalkulaator.php" method="post">
+            <form action="" method="post">
 
                 <div class="form-group">
                     <label class="mb-4" for="select_option">Kasutatud sülearvutite hinnapakkumine</label>
                     <br>
                     <select class="form-control" id="select_option" name="select_option">
-                        <option value="0">Kasutatud sülearvutid</option>
-                        <option value="1">Dell Latitude 5400</option>
-                        <option value="2">Lenovo ThinkdPad T14s</option>
-                        <option value="3">Fujitsu Lifebook E459</option>
+                        <option value="1">Kasutatud sülearvutid</option>
+                        <option value="2">Dell Latitude 5400</option>
+                        <option value="3">Lenovo ThinkdPad T14s</option>
+                        <option value="4">Fujitsu Lifebook E459</option>
                     </select>
                 </div>
                 <br>
