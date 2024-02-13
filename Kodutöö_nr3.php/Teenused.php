@@ -60,7 +60,7 @@
 
       <div class="container">
         <br>
-        <h2>Teenuse kalkulaator</h2>
+        <h2 class="mb-4">Teenuse kalkulaator</h2>
 
         <?php
             // Kalkulaatori loogika
@@ -84,10 +84,10 @@
             ?>
 
             <!-- Vormi kuvamine -->
-            <form action="" method="post">
+            <form action="kalkulaator.php" method="post">
 
                 <div class="form-group">
-                    <label for="select_option">Kasutatud sülearvutite hinnapakkumine</label>
+                    <label class="mb-4" for="select_option">Kasutatud sülearvutite hinnapakkumine</label>
                     <br>
                     <select class="form-control" id="select_option" name="select_option">
                         <option value="0">Kasutatud sülearvutid</option>
@@ -128,7 +128,7 @@
 
 
 
-      </div>
+      
 
 
 
