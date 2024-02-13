@@ -90,7 +90,7 @@
                     <label for="select_option">Kasutatud sülearvutite hinnapakkumine</label>
                     <br>
                     <select class="form-control" id="select_option" name="select_option">
-                        <option value="0"></option>
+                        <option value="0">Kasutatud sülearvutid</option>
                         <option value="1">Dell Latitude 5400</option>
                         <option value="2">Lenovo ThinkdPad T14s</option>
                         <option value="3">Fujitsu Lifebook E459</option>
