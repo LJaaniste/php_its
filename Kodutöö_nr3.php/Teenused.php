@@ -69,9 +69,9 @@
 
             if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 // Kogu sisestatud andmed
-                $input_value1 = $_POST['input_value1'];
-                $input_value2 = $_POST['input_value2'];
-                $select_option = $_POST['select_option']; // Näide rippmenüüst
+                $input_value1 = $_GET['input_value1'];
+                $input_value2 = $_GET['input_value2'];
+                $select_option = $_GET['select_option']; // Näide rippmenüüst
 
                 //Piirangud negatiivse väärtuse jaoks
                 $input_value1 = max(0, $input_value1);
