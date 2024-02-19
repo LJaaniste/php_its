@@ -67,7 +67,7 @@
             $error_message = '';
             $result = '';
 
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 // Kogu sisestatud andmed
                 $input_value1 = $_POST['input_value1'];
                 $input_value2 = $_POST['input_value2'];
@@ -98,7 +98,7 @@
             ?>
 
             <!-- Vormi kuvamine -->
-            <form action="" method="POST">
+            <form action="" method="GET">
 
                 <div class="form-group">
                     <label class="mb-4" for="select_option">Kasutatud sülearvutite hinnapakkumine</label>
@@ -129,7 +129,7 @@
 
             <!-- Kalkulatsiooni tulemus või vead -->
             <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 if ($result !== '') {
                     echo '<div class="alert alert-success mt-4" role="alert">KOKKU: ' . $result . ' </div>';
                 } elseif ($error_message !== '') {
