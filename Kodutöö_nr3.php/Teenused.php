@@ -136,6 +136,7 @@
                     echo '<div class="alert alert-danger mt-4" role="alert">' . $error_message . '</div>';
                 }
             }
+            echo "(\\(\\<br>( -.-)<br>o_(\")(\")<br><br>"
             ?>
         </div>
 
