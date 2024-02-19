@@ -82,7 +82,7 @@
                 if ($input_value1 !== '' && $input_value2 !== '') {
                   // Kui on valitud "Vali siit", annab veateate
                   if ($select_option === 'Vali siit') {
-                    $error_message = 'Viga';
+                    $error_message = 'Viga: Vormi täitmiseks on vajalikud kõik väljad.';
                   } else {
                     // Kalkulatsioon (korrutamine) 
                     $result = number_format($input_value1 * $input_value2) . ' €';
