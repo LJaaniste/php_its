@@ -58,7 +58,7 @@ if (!empty($_GET['synd'])) {
 
     <h1>Harjutus04</h1>
     <?php
-    $nr1 = 5;
+    $nr1 = 15;
     $nr2 = 5;
     // < > >= <= == != True False
     // OR - VÕI ||- üks õige
