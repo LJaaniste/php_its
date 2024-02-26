@@ -48,7 +48,7 @@
           </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Avaleht</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Avaleht</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Tooted</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="teenused.php">Teenused</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="kontakt.php">Kontakt</a></li>
@@ -64,7 +64,7 @@
       <div class="container">
         <div class="row justify-conent-center">
           <div class="col-md-12 text-center">
-            <h2 class="mb-4">Minu oskused</h2>
+            <h2 class="mb-2">Minu oskused</h2>
     
         <?php
 
@@ -93,7 +93,7 @@
       <br>
         <div class="row justify-conent-center">
           <div class="col-md-12 text-center">
-            <h2 class="mb-4">Meie töötajad</h2>
+            <h2 class="mb-2">Meie töötajad</h2>
             <div class="row d-flex justify-content-center">
 
             <?php
@@ -120,7 +120,7 @@
 
               // Pildi kuvamine
               echo '<div class="col-md-2 mb-4">';
-              echo '<img scr="' . $image . '" class="img-fluid rounded-circle" alt="' . $employeeName . '">';
+              echo '<img src="' . $image . '" class="img-fluid rounded-circle" alt="' . $employeeName . '">';
               echo '<h4 class="mt-2">' . $employeeName . '</h4>';
               echo '<p>' . $employeeEmail . '</p>';
               echo '</div>';
