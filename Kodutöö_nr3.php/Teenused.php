@@ -49,7 +49,7 @@
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Avaleht</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Tooted</a></li>
             <li class="nav-item"><a class="nav-link active"  aria-current="page" href="teenused.php">Teenused</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Kontakt</a></li>
+            <li class="nav-item"><a class="nav-link" href="kontakt.php">Kontakt</a></li>
             </ul>
             <button type="button" class="btn btn-primary mx-lg-2 my-2 d-xs-block">Login</button>
           </div> 
@@ -67,11 +67,11 @@
             $error_message = '';
             $result = '';
 
-            if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Kogu sisestatud andmed
-                $input_value1 = $_GET['input_value1'];
-                $input_value2 = $_GET['input_value2'];
-                $select_option = $_GET['select_option']; // Näide rippmenüüst
+                $input_value1 = $_POST['input_value1'];
+                $input_value2 = $_POST['input_value2'];
+                $select_option = $_POST['select_option']; // Näide rippmenüüst
 
                 //Piirangud negatiivse väärtuse jaoks
                 $input_value1 = max(0, $input_value1);
@@ -98,7 +98,7 @@
             ?>
 
             <!-- Vormi kuvamine -->
-            <form action="" method="GET">
+            <form action="" method="POST">
 
                 <div class="form-group">
                     <label class="mb-4" for="select_option">Kasutatud sülearvutite hinnapakkumine</label>
@@ -129,7 +129,7 @@
 
             <!-- Kalkulatsiooni tulemus või vead -->
             <?php
-            if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($result !== '') {
                     echo '<div class="alert alert-success mt-4" role="alert">KOKKU: ' . $result . ' </div>';
                 } elseif ($error_message !== '') {
