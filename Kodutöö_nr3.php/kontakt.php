@@ -2,9 +2,10 @@
 <html lang="et">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Kodutöö_nr3</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy1q5L4LOhG9cAtI/KD5SBrXbYB/JQOp6u" crossorigin="anonymous">
 
 
     </head>
@@ -61,40 +62,79 @@
       </div>
 
       <div class="container">
-          <div class="col-md-12 d-flex align-items-center justify-content-center">
-            <h5 class="mb-4">Minu oskused</h5>
+        <div class="row justify-conent-center">
+          <div class="col-md-12 text-center">
+            <h2 class="mb-4">Minu oskused</h2>
     
-        
         <?php
-        // Massiivid oskustest
+
+        // Massiivid oskustest ja värvidest
         $skills = array("HTML", "CSS", "Bootstrap", "PHP");
+        $colors = array("primary", "secondary", "success", "danger", "warning", "info", "dark");
         
-        
-        // Tsükkel oskuste ribade genereerimiseks
+        // Tsükkel oskuste ribade jaoks
         foreach ($skills as $index => $skill) {
         
-            //Suvalise värvi valimine
-        $colors = array("primary", "secondary", "success", "danger", "warning", "info", "dark");   
-        $random_colors = $colors[array_rand($colors)];
+        // Massiiv suvalistest värvidest
+        $random_color = $colors[array_rand($colors)];
         
         // Suvalise täisarvu valimine vahemikus 10-100
         $random_number = rand(10, 100);
 
         //Ribade kuvamine
-        echo '<div class="progress">';
+        echo '<div class="progress mb-3">';
         echo '<div class="progress-bar bg-' . $random_color . '" role="progressbar" style="width: ' . $random_number . '%" aria-valuenow="' . $random_number . '" aria-valuemin="0" aria-valuemax="100">' . $skill . '</div>';
         echo '</div>';
 
         }
-
-
         ?>
+           </div>
+        </div>  
+      <br>
+        <div class="row justify-conent-center">
+          <div class="col-md-12 text-center">
+            <h2 class="mb-4">Meie töötajad</h2>
+            <div class="row d-flex justify-content-center">
+
+            <?php
+            // Kataloog, kus on profiilipildid
+            $imageDirectory = 'Pildid';
+            
+            // Funktsioonid piltide automaatseks avastamiseks
+            function getImages($directory) {
+              $images = glob($directory . '/*.jpg');
+              return $images;
+            }
+
+            // Kõik pildid kataloogist
+            $images =getImages($imageDirectory);
+
+            // Tsükkel töötajate profiilide kuvamiseks
+            foreach ($images as $image) {
+              
+              // Töötaja nimi pildifaili nimest
+              $employeeName = ucfirst(pathinfo($image, PATHINFO_FILENAME));
+
+              // Töötaja e-posti aadress pildifaili nimest
+              $employeeEmail = strtolower(pathinfo($image, PATHINFO_FILENAME)) . '@sinunimi.ee';
+
+              // Pildi kuvamine
+              echo '<div class="col-md-2 mb-4">';
+              echo '<img scr="' . $image . '" class="img-fluid rounded-circle" alt="' . $employeeName . '">';
+              echo '<h4 class="mt-2">' . $employeeName . '</h4>';
+              echo '<p>' . $employeeEmail . '</p>';
+              echo '</div>';
+            }
 
 
+            ?>
+
+          </div>
+         </div>
+       </div>
+      </div>
 
 
-    </div>
-</div>    
 
 
 
