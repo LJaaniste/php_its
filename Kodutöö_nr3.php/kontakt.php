@@ -62,9 +62,13 @@
       </div>
 
       <div class="container">
-        <div class="row justify-conent-center">
-          <div class="col-md-12 text-center">
+      <div class="row justify-content-center">
+      <div class="col-md-12 text-center">
             <h2 class="mb-2">Minu oskused</h2>
+           
+            
+            
+           
     
         <?php
 
@@ -82,16 +86,19 @@
         $random_number = rand(10, 100);
 
         //Ribade kuvamine
-        echo '<div class="progress mb-3">';
+        echo '<div class="progress w-50 mb-3 mx-auto">';
         echo '<div class="progress-bar bg-' . $random_color . '" role="progressbar" style="width: ' . $random_number . '%" aria-valuenow="' . $random_number . '" aria-valuemin="0" aria-valuemax="100">' . $skill . '</div>';
         echo '</div>';
 
         }
         ?>
-           </div>
-        </div>  
+          </div>
+          </div>
+        
+         
+     
       <br>
-        <div class="row justify-conent-center">
+        <div class="row justify-content-center">
           <div class="col-md-12 text-center">
             <h2 class="mb-2">Meie töötajad</h2>
             <div class="row d-flex justify-content-center">
