@@ -73,7 +73,7 @@
         $colors = array("primary", "secondary", "success", "danger", "warning", "info", "dark");
         
         // Tsükkel oskuste ribade jaoks
-        foreach ($skills as $index => $skill) {
+        foreach ($skills as $skill) {
         
         // Massiiv suvalistest värvidest
         $random_color = $colors[array_rand($colors)];
