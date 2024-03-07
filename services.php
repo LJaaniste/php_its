@@ -95,6 +95,7 @@ if (isset($_POST['nimetus'])) {
   ';
  }
 }
+fclose($minu_csv);
 
 ?>
 
