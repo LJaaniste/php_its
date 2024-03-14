@@ -92,7 +92,7 @@
           </div>
         <div class="col-md-4">
           <div style="padding-bottom: 50px;">
-          <img src="cvpilt.jpg" alt="Pilt">
+          <img src="cvpilt.jpg" alt="Pilt" style="width: 120%;">
           </div>
         </div>
         <div class="col-md-2">
