@@ -23,7 +23,7 @@
           </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="avaleht.html">Avaleht</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Avaleht</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="tehtud.php">Tehtud tööd</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="oskused.php">Oskused</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" style="color: #0000ff;" href="kontakt.php">Kontakt</a></li>
@@ -40,7 +40,7 @@
       <div class="container">
       <h1>Kontakt</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nemo voluptatum, eos tempore distinctio sed debitis iste inventore sapiente ipsa impedit dolore quidem quisquam nam voluptate eveniet odio nesciunt laboriosam.</p>
-      
+
     </div>
 
 
