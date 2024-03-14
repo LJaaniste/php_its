@@ -23,7 +23,7 @@
           </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Avaleht</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Avaleht</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="tehtud.php">Tehtud tööd</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="oskused.php">Oskused</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="kontakt.php">Kontakt</a></li>
@@ -35,6 +35,12 @@
               
         </div>
       </div>
+
+      <div class="container">
+      <h1>Admin</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit minus doloremque, sint reprehenderit non hic accusamus atque, est ratione animi dolorum? Id consectetur nam sequi eos, numquam necessitatibus ducimus? Impedit!</p>
+
+    </div>
 
 
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
