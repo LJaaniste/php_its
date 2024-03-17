@@ -12,7 +12,12 @@
      <div class="container">
       <div class="row">
       <div class="col-md-6">
+        <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
       <span>sinu@nimi.ee</span>
+      
       </div>
             
       <div class="col-md-6 d-flex justify-content-end">

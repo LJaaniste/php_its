@@ -55,8 +55,9 @@
             <h1 class="mb-3"><b>SinuNimi</b></h1>
             <h5 class="mb-3">Veebiarendaja</h5>
             <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur debitis suscipit quis, ullam error ipsam blanditiis, aliquam, perferendis id accusantium consectetur. Omnis totam suscipit voluptatem minus quae maxime minima iure.</p>
-            
+            <a href="minucv.txt" download="minucv.txt">
             <button type="button" class="btn btn-primary btn-lg">Palka mind <i class="fas fa-paper-plane"></i></button>
+           </a>
           </div>  
          </div>
          <div class="col-md-2">
@@ -166,12 +167,6 @@
     
       
      
-
-
-
-
-      
-      
 
 
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

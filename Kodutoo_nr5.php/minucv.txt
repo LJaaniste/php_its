@@ -1,0 +1,2 @@
+"Pilt", "Pealkiri", "Alapealkiri", "Tekst"
+"mees.jpg", "Minu CV", "Kokkuvõte", "Soovin leida tööd ettevõttes, kus saaksin rakendada kõiki oma tugevaid külgi ja teha seda, mis mulle tõeliselt meeldib – suhelda klientidega, tegeleda aktiivse müügiga (nii B2B kui ka B2C) ja panustada uuendusmeelsete ideedega ettevõtte arengusse."
