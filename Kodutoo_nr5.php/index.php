@@ -1,47 +1,4 @@
-<!doctype html>
-<html lang="et">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kodutöö_nr5</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    
-
-</head>
-<body>
-  
-     <div class="container">
-      <div class="row">
-      <div class="col-md-6">
-        <div style="padding-bottom: 70px;">
-      <span>sinunimi.ee</span>
-      </div>
-      </div>
-            
-      <div class="col-md-6 d-flex justify-content-end">
-        <div style="padding-bottom: 70px;">
-
-      <nav class="navbar navbar-expand-lg">    
-            <a class="navbar-brand" href="#"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" style="color: #0000ff;" href="index.php">Avaleht</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="tehtud.php">Tehtud tööd</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="oskused.php">Oskused</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="kontakt.php">Kontakt</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="admin.php">Admin</a></li>
-            </ul>
-          </div> 
-          </nav>
-          </div>
-          </div>  
-        </div>
-      </div>
+<?php include 'header.php'; ?>
       
 
       <div class="container">
@@ -49,13 +6,26 @@
         <div class="col-md-1">
           </div>
           <div class="col-md-4">
+
+          
             
             <div style="padding-top: 0px;">
             <h1><b>Hei, olen</b></h1>
             <h1 class="mb-3"><b>SinuNimi</b></h1>
             <h5 class="mb-3">Veebiarendaja</h5>
-            <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur debitis suscipit quis, ullam error ipsam blanditiis, aliquam, perferendis id accusantium consectetur. Omnis totam suscipit voluptatem minus quae maxime minima iure.</p>
-            <a href="minucv.txt" download="minucv.txt">
+            
+          <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur debitis suscipit quis, ullam error ipsam blanditiis, aliquam, perferendis id accusantium consectetur. Omnis totam suscipit voluptatem minus quae maxime minima iure.</p>
+            
+          <?php
+
+          $allikas = 'palka.txt';
+          $minu_fail = fopen($allikas, 'r');
+         
+          
+          fclose($minu_fail);
+
+          ?>
+          <a href="palka.txt" download="palka.txt">
             <button type="button" class="btn btn-primary btn-lg">Palka mind <i class="fas fa-paper-plane"></i></button>
            </a>
           </div>  
@@ -127,8 +97,20 @@
           <div class="col">
           <div style="padding-top: 20px;">
         </div>
+
+        <?php
+
+          $allikas = 'minucv.txt';
+          $minu_fail = fopen($allikas, 'r');
+         
+          
+          fclose($minu_fail);
+
+          ?>
+        <a href="minucv.txt" download="minucv.txt">
           <button type="button" class="btn btn-primary btn-lg"> Lae alla CV <i class="bi bi-box-arrow-in-down"></i></button>
-          </div>
+         </a>  
+        </div>
           </div>
 
         </div>
@@ -139,11 +121,8 @@
      </div>
      <div style="padding-top: 50px;">
      </div>
-     
 
-
-    
-      <div class="container-fluid bg-primary text-white py-4">
+     <div class="container-fluid bg-primary text-white py-4">
         <div class="row align-items-center">
           <div class="col md-12 text-center">
             <br>
@@ -162,24 +141,8 @@
           </div>
         
       </div>
-   
+     
+
 
     
-      
-     
-
-
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/bootstrap-icons.svg"></script>
-
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-     
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy1q5L4LOhG9cAtI/KD5SBrXbYB/JQOp6u" crossorigin="anonymous"></script>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  </body>
-</html>
-
-
+      <?php include 'footer.php'; ?>

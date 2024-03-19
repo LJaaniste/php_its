@@ -1,2 +1,6 @@
-"Pilt", "Pealkiri", "Alapealkiri", "Tekst"
-"mees.jpg", "Minu CV", "Kokkuvõte", "Soovin leida tööd ettevõttes, kus saaksin rakendada kõiki oma tugevaid külgi ja teha seda, mis mulle tõeliselt meeldib – suhelda klientidega, tegeleda aktiivse müügiga (nii B2B kui ka B2C) ja panustada uuendusmeelsete ideedega ettevõtte arengusse."
+Minu CV
+
+Kokkuvõte
+
+Soovin leida tööd ettevõttes, kus saaksin rakendada kõiki oma tugevaid külgi ja teha seda, mis mulle tõeliselt meeldib – suhelda klientidega, tegeleda aktiivse müügiga (nii B2B kui ka B2C) ja panustada uuendusmeelsete ideedega ettevõtte arengusse.
+Olen oma töödes ja tegemistes väga ambitsioonikas, seega hindan kõrgelt arengu- ja lisavastutuse võtmise võimalusi. Väärtustan nii individuaalset kui ka meeskonnatööd ning näen ennast tulevikus haaramas ka müügijuhi positsiooni. |  | 
