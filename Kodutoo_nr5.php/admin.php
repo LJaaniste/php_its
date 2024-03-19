@@ -1,7 +1,7 @@
 
 <?php include 'header.php'; ?>
 
-      
+      <div class="container">
       <h1>Admin</h1><br>
 
     <h2>Muuda Avalehe sisu</h2>
@@ -56,11 +56,12 @@ if (isset($_POST['pealkiri'])) {
    
     header('Location: index.php');
     
-    
+   
 }
 
 
 ?>
+</div> 
 
 
 
