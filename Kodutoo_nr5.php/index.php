@@ -19,7 +19,7 @@
           <?php
 
           $allikas = 'palka.txt';
-          $minu_fail = fopen($allikas, 'r');
+          $minu_fail = fopen($allikas, 'a');
          
           
           fclose($minu_fail);
@@ -101,7 +101,7 @@
         <?php
 
           $allikas = 'minucv.txt';
-          $minu_fail = fopen($allikas, 'r');
+          $minu_fail = fopen($allikas, 'a');
          
           
           fclose($minu_fail);
