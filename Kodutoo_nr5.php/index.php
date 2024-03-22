@@ -10,19 +10,21 @@
           
             
             <div style="padding-top: 0px;">
-            <h1><b>Hei, olen</b></h1>
-            <h1 class="mb-3"><b>SinuNimi</b></h1>
-            <h5 class="mb-3">Veebiarendaja</h5>
+             <h1><b>Hei, olen</b></h1>
+             <h1 class="mb-3"><b>SinuNimi</b></h1>
+             <h5 class="mb-3">Veebiarendaja</h5>
+
+
             
-          <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur debitis suscipit quis, ullam error ipsam blanditiis, aliquam, perferendis id accusantium consectetur. Omnis totam suscipit voluptatem minus quae maxime minima iure.</p>
+           <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur debitis suscipit quis, ullam error ipsam blanditiis, aliquam, perferendis id accusantium consectetur. Omnis totam suscipit voluptatem minus quae maxime minima iure.</p>
             
           <?php
 
-          $allikas = 'palka.txt';
-          $minu_fail = fopen($allikas, 'a');
-         
-          
-          fclose($minu_fail);
+          $allikas = 'tutvustus.txt'; //faili nimi
+          $minu_fail = fopen($allikas, 'r'); //faili avamine
+          $faili_sisu = fread($minu_fail, filesize($allikas)); //faili sisu kuvamine
+          echo $faili_sisu; 
+          fclose($minu_fail); //faili sulgemine
 
           ?>
           <a href="palka.txt" download="palka.txt">
