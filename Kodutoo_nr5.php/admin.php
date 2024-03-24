@@ -43,19 +43,22 @@ if (isset($_GET['ok'])) {
 
 <?php
 if (isset($_POST['submit'])) {
+
+    //if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
    $pealkiri1 = $_POST["pealkiri1"];
    $pealkiri2 = $_POST["pealkiri2"];
    $alapealkiri = $_POST["alapealkiri"];
       $tekst = $_POST["tekst"];
-      $pilt = $_POST["pilt"];
+      $pilt = $_FILES['pilt']['name'];
+      // move_uploaded_file($_FILES['pilt']['tmp_name'], "uploads/".$_FILES['pilt']['name']);
 
       $rida = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt\n";
 
       file_put_contents("tutvustus.txt", $rida, FILE_APPEND);
      
    
-    header('Location: index.php');
+    header('Location: index.php?ok');
      
 }
 

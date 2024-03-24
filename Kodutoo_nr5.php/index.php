@@ -18,22 +18,22 @@
 
           $allikas = 'tutvustus.txt'; //faili nimi
           $minu_fail = fopen($allikas, 'r'); //faili avamine
-          $faili_sisu = fread($minu_fail, filesize($allikas)); //faili sisu kuvamine
+          while ($rida = fgets($minu_fail, filesize($allikas))) { //faili sisu kuvamine
           
           //echo $faili_sisu;
 
-         $read = explode("\n", $faili_sisu);
+         //$read = explode("\n", $faili_sisu);
          
 
-          foreach ($read as $rida) {
+          //foreach ($read as $rida) {
 
             $osad = explode(" | ", $rida);
             if (!empty($osad) && count($osad) >= 4) {
   
-              echo  '<h1><b>' . $osad[0] . '</b></h1>';// Ülemine pealkiri
-              echo  '<h1 class="mb-3" style="font-weight: bold;">' . $osad[1] . '</h1>'; // Alumine pealkiri
+              echo '<h1><b>' . $osad[0] . '</b></h1>'; // Ülemine pealkiri
+              echo '<h1 class="mb-3"><b>' . $osad[1] . '</b></h1>'; // Alumine pealkiri
               echo '<h5 class="mb-3">' . $osad[2] . '</h5>'; //Alapealkiri
-              echo '<p class="mb-3">' . $osad[3] . '</p>'; // Teksti kuvamine
+              echo '<p class="mb-3">' . $osad[3] .'</p>'; // Teksti kuvamine
              
             }
          }
