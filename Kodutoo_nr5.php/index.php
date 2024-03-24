@@ -10,13 +10,13 @@
           
             
             <div style="padding-top: 0px;">
-             <h1><b>Hei, olen</b></h1>
+             <!-- <h1><b>Hei, olen</b></h1>
              <h1 class="mb-3"><b>SinuNimi</b></h1>
              <h5 class="mb-3">Veebiarendaja</h5>
 
 
             
-           <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur debitis suscipit quis, ullam error ipsam blanditiis, aliquam, perferendis id accusantium consectetur. Omnis totam suscipit voluptatem minus quae maxime minima iure.</p>
+           <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur debitis suscipit quis, ullam error ipsam blanditiis, aliquam, perferendis id accusantium consectetur. Omnis totam suscipit voluptatem minus quae maxime minima iure.</p> -->
             
           <?php
 
@@ -24,10 +24,21 @@
           $minu_fail = fopen($allikas, 'r'); //faili avamine
           $faili_sisu = fread($minu_fail, filesize($allikas)); //faili sisu kuvamine
           echo $faili_sisu; 
+
+         
+               
+          //<h1><b> class="mb-3">'.$rida[1].'</b></h1>
+          //<h1><b> class="mb-3">'.$rida[2].'</b></h1>
+          //<h5> class="mb-3">'.$rida[3].'</h1>
+          //<p class="text-start">'.$rida[4].'</p>
+                  
+
           fclose($minu_fail); //faili sulgemine
 
+
           ?>
-          <a href="palka.txt" download="palka.txt">
+
+          <a href="tutvustus.txt" download="tutvustus.txt">
             <button type="button" class="btn btn-primary btn-lg">Palka mind <i class="fas fa-paper-plane"></i></button>
            </a>
           </div>  
@@ -37,6 +48,8 @@
          
           <div class="col-md-4">
             <div style="padding-top: 50px;">
+
+
             <img src="mees.jpg" alt="Pilt" style="border-radius: 45% 55% 50% 50% / 30% 40% 60% 70%; width: 60%;">
           </div>
           </div>
