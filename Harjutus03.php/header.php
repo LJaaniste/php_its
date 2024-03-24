@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="et">
     <head>
         <title>Tunnitöö 3</title>
         <!-- Required meta tags -->

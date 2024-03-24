@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?>
-      
+
 
       <div class="container">
       <div class="row">
@@ -8,14 +8,10 @@
           <div class="col-md-4">
 
           
-            
             <div style="padding-top: 0px;">
              <!-- <h1><b>Hei, olen</b></h1>
              <h1 class="mb-3"><b>SinuNimi</b></h1>
              <h5 class="mb-3">Veebiarendaja</h5>
-
-
-            
            <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur debitis suscipit quis, ullam error ipsam blanditiis, aliquam, perferendis id accusantium consectetur. Omnis totam suscipit voluptatem minus quae maxime minima iure.</p> -->
             
           <?php
@@ -23,18 +19,25 @@
           $allikas = 'tutvustus.txt'; //faili nimi
           $minu_fail = fopen($allikas, 'r'); //faili avamine
           $faili_sisu = fread($minu_fail, filesize($allikas)); //faili sisu kuvamine
-          echo $faili_sisu; 
+          
+          //echo $faili_sisu; 
+          $read = explode("\n", $faili_sisu);
 
-         
-               
-          //<h1><b> class="mb-3">'.$rida[1].'</b></h1>
-          //<h1><b> class="mb-3">'.$rida[2].'</b></h1>
-          //<h5> class="mb-3">'.$rida[3].'</h1>
-          //<p class="text-start">'.$rida[4].'</p>
-                  
+          foreach ($read as $rida) {
+
+            $osad = explode(" | ", $rida);
+            if (!empty($osad) && count($osad) >= 4) {
+  
+              echo  '<h1><b>' . $osad[0] . '</b></h1>';// Ülemine pealkiri
+              echo  '<h1 class="mb-3" style="font-weight: bold;">' . $osad[1] . '</h1>'; // Alumine pealkiri
+              echo '<h5 class="mb-3">' . $osad[2] . '</h5>'; //Alapealkiri
+              echo '<p class="mb-3">' . $osad[3] . '</p>'; // Teksti kuvamine
+             
+            }
+          }
+        
 
           fclose($minu_fail); //faili sulgemine
-
 
           ?>
 
@@ -49,8 +52,34 @@
           <div class="col-md-4">
             <div style="padding-top: 50px;">
 
+            <?php
 
-            <img src="mees.jpg" alt="Pilt" style="border-radius: 45% 55% 50% 50% / 30% 40% 60% 70%; width: 60%;">
+          $allikas = 'tutvustus.txt'; //faili nimi
+          $minu_fail = fopen($allikas, 'r'); //faili avamine
+          $faili_sisu = fread($minu_fail, filesize($allikas)); //faili sisu kuvamine
+          
+          $read = explode("\n", $faili_sisu);
+
+          foreach ($read as $rida) {
+
+            $osad = explode("|", $rida);
+            if (!empty($osad) && count($osad) >= 4) {
+
+              if (isset($osad[4])) {
+                
+                $pilt = $osad[4]; // Pildi nimi
+               
+                echo '<img src="' . $pilt . '" alt="Pilt" class="img-fluid" style="border-radius: 45% 55% 50% 50% / 30% 40% 60% 70%; width: 60%;">'; // Pildi kuvamine
+                
+            }
+              
+          }
+        }
+         fclose($minu_fail); //faili sulgemine
+
+          ?>
+
+            <!-- <img src="mees.jpg" alt="Pilt" style="border-radius: 45% 55% 50% 50% / 30% 40% 60% 70%; width: 60%;"> -->
           </div>
           </div>
           <div class="col-md-1">

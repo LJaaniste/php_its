@@ -4,7 +4,7 @@
       <div class="container">
       <h1>Admin</h1><br>
 
-    <h2>Muuda Avalehe sisu</h2>
+    <h2>Avalehe sisu</h2>
 
     <?php
 if (isset($_GET['ok'])) {
@@ -19,8 +19,11 @@ if (isset($_GET['ok'])) {
 
 <form action=""method="post" enctype="multipart/form-data">
 
-    <label for="pealkiri">Pealkiri:</label>
-    <input type="text" name="pealkiri" required><br>
+    <label for="pealkiri1">Ülemine pealkiri:</label>
+    <input type="text" name="pealkiri1" required><br>
+
+    <label for="pealkiri2">Alumine pealkiri:</label>
+    <input type="text" name="pealkiri2" required><br>
 
     <label for="alapealkiri">Alapealkiri:</label>
     <input type="text" name="alapealkiri" required><br>
@@ -28,8 +31,8 @@ if (isset($_GET['ok'])) {
     <label for="tekst">Tekst:</label>
     <textarea name="tekst"></textarea><br>
 
-    <label for="lisapilt">Lisa pilt</label>
-    <input type="file" name="lisapilt">
+    <label for="pilt">Lisa pilt</label>
+    <input type="file" name="pilt">
 
   
 
@@ -39,53 +42,24 @@ if (isset($_GET['ok'])) {
 
 
 <?php
-if (isset($_POST['palka'])) {
+if (isset($_POST['submit'])) {
     
-   $uus_pealkiri = $_POST["pealkiri"];
-   $uus_alapealkiri = $_POST["alapealkiri"];
-      $uus_tekst = $_POST["tekst"];
-      $uus_pilt = $_POST["pilt"];
+   $pealkiri1 = $_POST["pealkiri1"];
+   $pealkiri2 = $_POST["pealkiri2"];
+   $alapealkiri = $_POST["alapealkiri"];
+      $tekst = $_POST["tekst"];
+      $pilt = $_POST["pilt"];
 
-      $rida = "$pealkiri | $alapealkiri | $tekst | $lisapilt\n";
+      $rida = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt\n";
 
-      file_put_contents("palka.txt", $rida, FILE_APPEND);
+      file_put_contents("tutvustus.txt", $rida, FILE_APPEND);
      
-
-  
    
     header('Location: index.php');
-    
-   
-}
-
-
-?>
-
-<?php
-if (isset($_POST['cv'])) {
-    
-   $uus_pealkiri = $_POST["pealkiri"];
-   $uus_alapealkiri = $_POST["alapealkiri"];
-      $uus_tekst = $_POST["tekst"];
-      $uus_pilt = $_POST["pilt"];
-
-      $rida = "$pealkiri | $alapealkiri | $tekst | $lisapilt\n";
-
      
-      file_put_contents("minucv.txt", $rida, FILE_APPEND);
-
-  
-   
-    header('Location: index.php');
-    
-   
 }
 
-
 ?>
-
-
-
 
 
 </div> 
