@@ -20,7 +20,8 @@
           $minu_fail = fopen($allikas, 'r'); //faili avamine
           $faili_sisu = fread($minu_fail, filesize($allikas)); //faili sisu kuvamine
           
-          //echo $faili_sisu; 
+          //echo $faili_sisu;
+
          $read = explode("\n", $faili_sisu);
          
 
@@ -35,7 +36,7 @@
               echo '<p class="mb-3">' . $osad[3] . '</p>'; // Teksti kuvamine
              
             }
-          }
+         }
         
 
           fclose($minu_fail); //faili sulgemine
