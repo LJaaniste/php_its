@@ -21,7 +21,8 @@
           $faili_sisu = fread($minu_fail, filesize($allikas)); //faili sisu kuvamine
           
           //echo $faili_sisu; 
-          $read = explode("\n", $faili_sisu);
+         $read = explode("\n", $faili_sisu);
+         
 
           foreach ($read as $rida) {
 
