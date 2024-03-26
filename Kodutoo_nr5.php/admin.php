@@ -50,7 +50,7 @@ if (isset($_GET['ok'])) {
             $pilt = $_FILES['pilt']['name'];
             
            // move_uploaded_file($_FILES['pilt']['tmp_name'], "uploads/" . $_FILES['pilt']['name']);
-           move_uploaded_file($_FILES['pilt']['tmp_name'], "" . $_FILES['pilt']['name']);
+           move_uploaded_file($_FILES['pilt']['tmp_name'], "img/" . $_FILES['pilt']['name']);
             
 
             //$vana_rida = file("tutvustus.txt", FILE_IGNORE_NEW_LINES);

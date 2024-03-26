@@ -72,6 +72,8 @@
                 $pilt = $osad[4]; // Pildi nimi
                
                 echo '<img src="' . $pilt . '" alt="Pilt" style="border-radius: 45% 55% 50% 50% / 30% 40% 60% 70%; width: 60%;">'; // Pildi kuvamine
+
+                //echo '<img src="'.$pilt.'" alt="Pilt" style="border-radius: 45% 55% 50% 50% / 30% 40% 60% 70%; width: 60%;">';
                 
             }
           }
