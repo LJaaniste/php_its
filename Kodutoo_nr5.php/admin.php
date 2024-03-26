@@ -59,7 +59,7 @@ if (isset($_GET['ok'])) {
 
             //$uus_rida = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt";
 
-            $new_line = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt";
+            $new_line = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt\n";
 
             //$vana_rida[0] = $uus_rida;
 
