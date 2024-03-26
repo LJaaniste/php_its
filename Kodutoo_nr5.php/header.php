@@ -14,13 +14,13 @@
   
      <div class="container">
       <div class="row">
-      <div class="col-md-6">
+      <div class="col-sm-6">
         <div style="padding-bottom: 70px;">
       <span>sinunimi.ee</span>
       </div>
       </div>
             
-      <div class="col-md-6 d-flex justify-content-end">
+      <div class="col-sm-6 d-flex justify-content-end">
         <div style="padding-bottom: 70px;">
 
       <nav class="navbar navbar-expand-lg">    

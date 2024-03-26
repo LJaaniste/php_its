@@ -28,10 +28,10 @@ if (isset($_GET['ok'])) {
     <input type="text" name="alapealkiri" required><br>
 
     <label for="tekst">Tekst:</label>
-    <textarea name="tekst"></textarea><br>
+    <textarea name="tekst" required></textarea><br>
 
     <label for="pilt">Lisa pilt</label>
-    <input type="file" name="pilt">
+    <input type="file" name="pilt" required>
 
     <input class="btn btn-success" type="submit" value="Salvesta">
 </form>
@@ -41,29 +41,34 @@ if (isset($_GET['ok'])) {
 <?php
      //if (isset($_POST['submit'])) {
 
-   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
-   $pealkiri1 = $_POST["pealkiri1"];
-   $pealkiri2 = $_POST["pealkiri2"];
-   $alapealkiri = $_POST["alapealkiri"];
-      $tekst = $_POST["tekst"];
-      //$pilt = $_POST["pilt"];
-      $pilt = $_FILES['pilt']['name'];
-      
-      move_uploaded_file($_FILES['pilt']['tmp_name'], "img/".$_FILES['pilt']['name']);
-     
-      
-     $rida = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt\n";
-    
-     
-      file_put_contents("tutvustus.txt", $rida, FILE_APPEND);
-     
-   
-    header('Location: index.php?ok');
-    exit;
-     
-   }
- 
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $pealkiri1 = $_POST["pealkiri1"];
+            $pealkiri2 = $_POST["pealkiri2"];
+            $alapealkiri = $_POST["alapealkiri"];
+            $tekst = $_POST["tekst"];
+            $pilt = $_FILES['pilt']['name'];
+            
+           // move_uploaded_file($_FILES['pilt']['tmp_name'], "uploads/" . $_FILES['pilt']['name']);
+           move_uploaded_file($_FILES['pilt']['tmp_name'], "" . $_FILES['pilt']['name']);
+            
+
+            $vana_rida = file("tutvustus.txt", FILE_IGNORE_NEW_LINES);
+
+           
+
+            $uus_rida = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt";
+            
+           
+
+            $vana_rida[0] = $uus_rida;
+            
+            
+            file_put_contents("tutvustus.txt", implode("\n", $vana_rida));
+            
+            header('Location: index.php?ok');
+            exit;
+        }
 
 ?>
 
