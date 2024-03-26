@@ -18,25 +18,29 @@
 
           $allikas = 'tutvustus.txt'; //faili nimi
           $minu_fail = fopen($allikas, 'r'); //faili avamine
-          while ($rida = fgets($minu_fail, filesize($allikas))) { //faili sisu kuvamine
+          $faili_sisu = fread($minu_fail, filesize($allikas)); //faili sisu kuvamine
+         //while ($rida = fread($minu_fail)) { 
           
-          //echo $faili_sisu;
+          
+         //echo $faili_sisu;
 
-         //$read = explode("\n", $faili_sisu);
+        $read = explode("\n", $faili_sisu);
          
+         foreach ($read as $rida) {
+            
 
-          //foreach ($read as $rida) {
+           $osad = explode(" | ",$rida);
 
-            $osad = explode(" | ", $rida);
-            if (!empty($osad) && count($osad) >= 4) {
+         if (!empty($osad) && count($osad) >= 4) {
   
               echo '<h1><b>' . $osad[0] . '</b></h1>'; // Ülemine pealkiri
               echo '<h1 class="mb-3"><b>' . $osad[1] . '</b></h1>'; // Alumine pealkiri
               echo '<h5 class="mb-3">' . $osad[2] . '</h5>'; //Alapealkiri
               echo '<p class="mb-3">' . $osad[3] .'</p>'; // Teksti kuvamine
              
-            }
-         }
+          }
+           }
+         
         
 
           fclose($minu_fail); //faili sulgemine
@@ -56,27 +60,28 @@
 
             <?php
 
-          $allikas = 'tutvustus.txt'; //faili nimi
+          $allikas = "tutvustus.txt"; //faili nimi
           $minu_fail = fopen($allikas, 'r'); //faili avamine
-          $faili_sisu = fread($minu_fail, filesize($allikas)); //faili sisu kuvamine
+          //while ($rida = fread($minu_fail)) {
+         $faili_sisu = fread($minu_fail, filesize($allikas)); //faili sisu kuvamine
           
-          $read = explode("\n", $faili_sisu);
+        $read = explode("\n", $faili_sisu);
 
           foreach ($read as $rida) {
 
             $osad = explode("|", $rida);
-            if (!empty($osad) && count($osad) >= 4) {
+          if (!empty($osad) && count($osad) >= 4) {
 
-              if (isset($osad[4])) {
+             if (isset($osad[4])) {
                 
                 $pilt = $osad[4]; // Pildi nimi
                
-                echo '<img src="' . $pilt . '" alt="Pilt" class="img-fluid" style="border-radius: 45% 55% 50% 50% / 30% 40% 60% 70%; width: 60%;">'; // Pildi kuvamine
+                echo '<img src="' . $pilt . '" alt="Pilt" style="border-radius: 45% 55% 50% 50% / 30% 40% 60% 70%; width: 60%;">'; // Pildi kuvamine
                 
             }
-              
           }
-        }
+          }
+         //}
          fclose($minu_fail); //faili sulgemine
 
           ?>

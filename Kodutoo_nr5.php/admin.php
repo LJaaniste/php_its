@@ -14,10 +14,9 @@ if (isset($_GET['ok'])) {
     ';
 }
 
-
 ?>
 
-<form action=""method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data">
 
     <label for="pealkiri1">Ülemine pealkiri:</label>
     <input type="text" name="pealkiri1" required><br>
@@ -34,33 +33,37 @@ if (isset($_GET['ok'])) {
     <label for="pilt">Lisa pilt</label>
     <input type="file" name="pilt">
 
-  
-
     <input class="btn btn-success" type="submit" value="Salvesta">
 </form>
 
 
 
 <?php
-if (isset($_POST['submit'])) {
+     //if (isset($_POST['submit'])) {
 
-    //if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
    $pealkiri1 = $_POST["pealkiri1"];
    $pealkiri2 = $_POST["pealkiri2"];
    $alapealkiri = $_POST["alapealkiri"];
       $tekst = $_POST["tekst"];
+      //$pilt = $_POST["pilt"];
       $pilt = $_FILES['pilt']['name'];
-      // move_uploaded_file($_FILES['pilt']['tmp_name'], "uploads/".$_FILES['pilt']['name']);
-
-      $rida = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt\n";
-
+      
+      move_uploaded_file($_FILES['pilt']['tmp_name'], "img/".$_FILES['pilt']['name']);
+     
+      
+     $rida = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt\n";
+    
+     
       file_put_contents("tutvustus.txt", $rida, FILE_APPEND);
      
    
     header('Location: index.php?ok');
+    exit;
      
-}
+   }
+ 
 
 ?>
 
