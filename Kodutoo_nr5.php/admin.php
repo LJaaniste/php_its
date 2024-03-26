@@ -50,7 +50,7 @@ if (isset($_GET['ok'])) {
             $pilt = $_FILES['pilt']['name'];
             
            // move_uploaded_file($_FILES['pilt']['tmp_name'], "uploads/" . $_FILES['pilt']['name']);
-           move_uploaded_file($_FILES['pilt']['tmp_name'], "uploads/" . $_FILES['pilt']['name']);
+           move_uploaded_file($_FILES['pilt']['tmp_name'], "" . $_FILES['pilt']['name']);
             
 
             //$vana_rida = file("tutvustus.txt", FILE_IGNORE_NEW_LINES);
@@ -59,7 +59,7 @@ if (isset($_GET['ok'])) {
 
             //$uus_rida = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt";
 
-            $new_line = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt\n";
+            $new_line = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt";
 
             //$vana_rida[0] = $uus_rida;
 
