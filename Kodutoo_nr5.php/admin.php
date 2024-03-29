@@ -53,17 +53,17 @@ if (isset($_GET['ok'])) {
            move_uploaded_file($_FILES['pilt']['tmp_name'], "" . $_FILES['pilt']['name']);
             
 
-            //$vana_rida = file("tutvustus.txt", FILE_IGNORE_NEW_LINES);
+            $vana_rida = file("tutvustus.txt", FILE_IGNORE_NEW_LINES);
             
-            $lines = file("tutvustus.txt", FILE_IGNORE_NEW_LINES);
+            //$lines = file("tutvustus.txt", FILE_IGNORE_NEW_LINES);
 
-            //$uus_rida = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt";
+            $uus_rida = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt";
 
-            $new_line = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt";
+            //$new_line = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt";
 
-            //$vana_rida[0] = $uus_rida;
+            $vana_rida[0] = $uus_rida;
 
-            $lines[0] = $new_line;
+           // $lines[0] = $new_line;
             
             file_put_contents("tutvustus.txt", implode("\n", $lines));
             
