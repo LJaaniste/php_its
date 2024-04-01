@@ -12,7 +12,9 @@
 
   <div class="container">
 
-  <h1>10 nime ja riiki</h1>
+  <h1>Tallinna maraton</h1><br>
+
+  <h3>10 nime ja riiki</h3>
 
 
   <?php
@@ -43,7 +45,7 @@
 
 
      //päring, mille saadan andmebaasi
-     $paring = " SELECT id, album, hind FROM albumid ORDER BY artist ASC LIMIT 10";
+     $paring = " SELECT id, vanus, tel, riik, sugu, tsargi_suurus, registreerimine, finish FROM 02_tallinn_marathon ORDER BY id, nimi, riik,  ASC LIMIT 10";
     
 
          //saadan soovitud ühendusele minu päringu
