@@ -62,7 +62,7 @@ $result = mysqli_query($yhendus, $sql);
 require_once 'config.php';
 
 // SQL päring andmete väljavõtmiseks
-$sql = "SELECT id, nimi, riik, registreerimine, finish FROM tallinn_marathon WHERE riik = 'Finland' AND registreerimine > '2024-03-01' ORDER BY finish ASC";
+$sql = "SELECT id, nimi, riik, registreerimine, finish FROM tallinn_marathon WHERE riik = 'Finland' AND registreerimine > '2024-02-25' ORDER BY finish ASC";
 
 // Päringu saatmine andmebaasile
 $result = mysqli_query($yhendus, $sql);
