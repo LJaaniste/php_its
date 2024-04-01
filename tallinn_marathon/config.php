@@ -1,7 +1,7 @@
 <?php
 $kasutaja = "leena";
 $dbserver = "localhost";
-$andmebaas = "tallinn_marathon";
+$andmebaas = "tallinna_maraton";
 $pw = "Password";
 
 $yhendus = mysqli_connect($dbserver, $kasutaja, $pw, $andmebaas);

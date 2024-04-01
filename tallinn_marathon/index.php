@@ -18,48 +18,76 @@
 
 
   <?php
-    // lisamine
-    if(!empty($_GET["lisa"])){
-      $nimi = $_GET["nimi"];
-      $vanus = $_GET["vanus"];
-      $tel = $_GET["tel"];
-      $riik = $_GET["riik"];
-      $sugu = $_GET["sugu"];
-      $tsargi_suurus = $_GET["tsargi_suurus"];
-      $registreerimine = $_GET["registreerimine"];
-      $finish = $_GET["finish"];
-
-       $paring = "INSERT INTO tallinn_marathon(nimi, vanus, tel, riik, sugu, tsargi_suurus, registreerimine, finish) VALUES ('$nimi', '$vanus', '$tel', '$riik', '$sugu', '$tsargi_suurus', '$registreerimine', '$finish')";
-       // ($paring);
-       $valjund = mysqli_query($yhendus, $paring);
-       if($valjund){
-          echo "Lisamine õnnestus";
-    } else {
-      echo "Lisamine ebaõnnestus";
-
-    }
-    }
-
-
-
-
-
-     //päring, mille saadan andmebaasi
-     $paring = " SELECT id, vanus, tel, riik, sugu, tsargi_suurus, registreerimine, finish FROM 02_tallinn_marathon ORDER BY id, nimi, riik,  ASC LIMIT 10";
     
 
-         //saadan soovitud ühendusele minu päringu
-        // $valjund = mysqli_query($yhendus, $paring);
+// Ühendus andmebaasiga
+
+require_once 'config.php';
+
+// SQL päring andmete väljavõtmiseks
+$sql = "SELECT id, nimi, riik FROM tallinn_marathon LIMIT 10";
+
+// Päringu saatmine andmebaasile
+$result = mysqli_query($yhendus, $sql);
+
+
+      // HTML tabeli väljastamime
+      echo '<table class="table">';
+      echo "<tr><th>ID</th><th>Nimi</th><th>Riik</th></tr>";
+
+      
+      // Andmed väljastamine iga rea kaupa
+      while ($row = mysqli_fetch_assoc($result)) {
+          echo "<tr>";
+          echo "<td>" . $row['id'] . "</td>";
+          echo "<td>" . $row['nimi'] . "</td>";
+          echo "<td>" . $row['riik'] . "</td>";
+          echo "</tr>";
+      }
+      
+      // Tabeli lõpetamine
+      echo "</table>";
   
+?>
+
+<br>
+<h3>Soome osalejad finishiaja järgi, registreeritud pärast 01.03.2024</h3>
 
 
+  <?php
+    
+
+// Ühendus andmebaasiga
+
+require_once 'config.php';
+
+// SQL päring andmete väljavõtmiseks
+$sql = "SELECT id, nimi, riik, registreerimine, finish FROM tallinn_marathon WHERE riik = 'Finland' AND registreerimine > '2024-03-01' ORDER BY finish ASC";
+
+// Päringu saatmine andmebaasile
+$result = mysqli_query($yhendus, $sql);
 
 
+      // HTML tabeli väljastamime
+      echo '<table class="table">';
+      echo "<tr><th>ID</th><th>Nimi</th><th>Riik</th><th>Registreerimine</th><th>Finish</th></tr>";
+      //echo "<tr><th>Nimi</th><th>Riik</th><th>Registreerimine</th><th>Finish</th></tr>";
 
-
-
-
-
+      
+      // Andmed väljastamine iga rea kaupa
+      while ($row = mysqli_fetch_assoc($result)) {
+          echo "<tr>";
+          echo "<td>" . $row['id'] . "</td>";
+          echo "<td>" . $row['nimi'] . "</td>";
+          echo "<td>" . $row['riik'] . "</td>";
+          echo "<td>" . $row['registreerimine'] . "</td>";
+          echo "<td>" . $row['finish'] . "</td>";
+          echo "</tr>";
+      }
+      
+      // Tabeli lõpetamine
+      echo "</table>";
+  
 ?>
 
 
