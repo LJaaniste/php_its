@@ -74,7 +74,7 @@ INSERT INTO tallinn_marathon (id, nimi, vanus, tel, riik, sugu, tsargi_suurus, r
 (53, 'Raivo', 74, '3759358232', 'Latvia', 'Male', 'S', '1/6/2024', '11:46');
 (54, 'Tarmo', 45, '3595108094', 'Lithuania', 'Male', 'M', '1/22/2024', '7:43');
 (55, 'Aimar', 59, '5012583201', 'Lithuania', 'Male', 'XS', '2/20/2024', '6:08');
-values (56, 'Tiit', 61, '3566577262', 'Finland', 'Female', 'L', '2/24/2024', '22:27');
+(56, 'Tiit', 61, '3566577262', 'Finland', 'Female', 'L', '2/24/2024', '22:27');
 (57, 'Meelis', 51, '4297240330', 'Lithuania', 'Male', 'L', '1/5/2024', '5:45');
 (58, 'Olev', 39, null, 'Estonia', 'Female', 'S', '1/14/2024', '11:41');
 (59, 'Tauno', 23, null, 'Finland', 'Male', '3XL', '2/12/2024', '17:18');
@@ -219,3 +219,13 @@ values (56, 'Tiit', 61, '3566577262', 'Finland', 'Female', 'L', '2/24/2024', '22
 (198, 'Siim', 71, '5104313208', 'Lithuania', 'Male', '2XL', '2/13/2024', '21:10');
 (199, 'Kaur', 37, '4789152806', 'Finland', 'Female', '2XL', '1/3/2024', '21:06');
 (200, 'Vello', 23, '6172700707', 'Lithuania', 'Male', 'M', '2/26/2024', '15:58');
+
+
+ALTER TABLE `tallinn_marathon`
+  ADD PRIMARY KEY (`id`);
+
+
+  LTER TABLE `tallinn_marathon`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
+COMMIT;
+
