@@ -14,16 +14,11 @@
 
   <h1>Tallinna maraton</h1><br>
 
-  <h3>10 nime ja riiki</h3>
+  <h3>1. 10 esimest nime ja riiki</h3>
 
 
   <?php
     
-
-// Ühendus andmebaasiga
-
-require_once 'config.php';
-
 // SQL päring andmete väljavõtmiseks
 $sql = "SELECT id, nimi, riik FROM tallinn_marathon LIMIT 10";
 
@@ -36,7 +31,7 @@ $result = mysqli_query($yhendus, $sql);
       echo "<tr><th>ID</th><th>Nimi</th><th>Riik</th></tr>";
 
       
-      // Andmed väljastamine iga rea kaupa
+      // Andmete väljastamine iga rea kaupa
       while ($row = mysqli_fetch_assoc($result)) {
           echo "<tr>";
           echo "<td>" . $row['id'] . "</td>";
@@ -51,18 +46,13 @@ $result = mysqli_query($yhendus, $sql);
 ?>
 
 <br>
-<h3>Soome osalejad finishiaja järgi, registreeritud pärast 01.03.2024</h3>
+<h3>2. Soome osalejad finišiaja järgi, registreeritud pärast 01.03.2024</h3>
 
 
   <?php
     
-
-// Ühendus andmebaasiga
-
-require_once 'config.php';
-
 // SQL päring andmete väljavõtmiseks
-$sql = "SELECT id, nimi, riik, registreerimine, finish FROM tallinn_marathon WHERE riik = 'Finland' AND registreerimine > '2024-02-25' ORDER BY finish ASC";
+$sql = "SELECT id, nimi, riik, registreerimine, finish FROM tallinn_marathon WHERE riik = 'Finland' AND registreerimine > '2024-03-01' ORDER BY finish ASC";
 
 // Päringu saatmine andmebaasile
 $result = mysqli_query($yhendus, $sql);
@@ -71,10 +61,8 @@ $result = mysqli_query($yhendus, $sql);
       // HTML tabeli väljastamime
       echo '<table class="table">';
       echo "<tr><th>ID</th><th>Nimi</th><th>Riik</th><th>Registreerimine</th><th>Finish</th></tr>";
-      //echo "<tr><th>Nimi</th><th>Riik</th><th>Registreerimine</th><th>Finish</th></tr>";
-
-      
-      // Andmed väljastamine iga rea kaupa
+         
+      // Andmete väljastamine iga rea kaupa
       while ($row = mysqli_fetch_assoc($result)) {
           echo "<tr>";
           echo "<td>" . $row['id'] . "</td>";
@@ -89,6 +77,74 @@ $result = mysqli_query($yhendus, $sql);
       echo "</table>";
   
 ?>
+
+<br>
+<h3>3. Osalejad vanusegruppides 18-30</h3>
+
+<?php
+    
+
+// SQL päring andmete väljavõtmiseks
+//$sql = "SELECT vanus, COUNT(*) AS osalejate_arv FROM tallinn_marathon WHERE vanus BETWEEN 18 AND 30";
+
+$sql = "SELECT vanus, COUNT(*) AS osalejate_arv FROM tallinn_marathon WHERE vanus BETWEEN 18 AND 30 GROUP BY vanus ORDER BY vanus";
+
+// Päringu saatmine andmebaasile
+$result = mysqli_query($yhendus, $sql);
+
+
+    // HTML tabeli väljastamime
+      echo '<table class="table">
+
+      <tr>
+       <th>Vanus</th>
+       <th>Osalejate arv</th>
+       </tr>';
+    
+      // Andmete väljastamine iga rea kaupa
+          
+      while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . $row['vanus'] . "</td>";
+        echo "<td>" . $row['osalejate_arv'] . "</td>";
+        echo "</tr>";
+      }
+      // Tabeli lõpetamine
+      echo "</table>";
+  
+?>
+
+<br>
+<h3>4. 3 juhuslikku naisosalejat, kes lõpetasid maratoni</h3>
+
+<?php
+    
+
+// SQL päring andmete väljavõtmiseks
+
+$sql = "SELECT nimi FROM tallinn_marathon WHERE sugu = 'Female' AND finish IS NOT NULL ORDER BY RAND() LIMIT 3";
+
+// Päringu saatmine andmebaasile
+$result = mysqli_query($yhendus, $sql);
+
+
+      // HTML tabeli väljastamime
+      echo '<table class="table">';
+      echo "<tr><th>Nimi</th></tr>";
+      
+      
+      // Andmete väljastamine iga rea kaupa
+      while ($row = mysqli_fetch_assoc($result)) {
+          echo "<tr>";
+          echo "<td>" . $row['nimi'] . "</td>";
+       
+          echo "</tr>";
+      }
+      
+      // Tabeli lõpetamine
+      echo "</table>";
+      ?>
+
 
 
 </div>
