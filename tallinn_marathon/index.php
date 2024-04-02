@@ -21,7 +21,7 @@
     
 // SQL päring andmete väljavõtmiseks
 $sql = "SELECT id, nimi, riik FROM tallinn_marathon LIMIT 10";
-
+print_r($sql);
 // Päringu saatmine andmebaasile
 $result = mysqli_query($yhendus, $sql);
 
@@ -52,7 +52,9 @@ $result = mysqli_query($yhendus, $sql);
   <?php
     
 // SQL päring andmete väljavõtmiseks
-$sql = "SELECT id, nimi, riik, registreerimine, finish FROM tallinn_marathon WHERE riik = 'Finland' AND registreerimine > '2024-03-01' ORDER BY finish ASC";
+//$sql = "SELECT id, nimi, riik, registreerimine, finish FROM tallinn_marathon WHERE riik = 'Finland' AND registreerimine > '2024-03-01' ORDER BY finish ASC";
+$sql = "SELECT id, nimi, riik, registreerimine, finish FROM tallinn_marathon WHERE riik = 'Finland' AND registreerimine > DATE('2024-03-01') ORDER BY finish ASC";
+print_r($sql);
 
 // Päringu saatmine andmebaasile
 $result = mysqli_query($yhendus, $sql);
@@ -88,6 +90,7 @@ $result = mysqli_query($yhendus, $sql);
 //$sql = "SELECT vanus, COUNT(*) AS osalejate_arv FROM tallinn_marathon WHERE vanus BETWEEN 18 AND 30";
 
 $sql = "SELECT vanus, COUNT(*) AS osalejate_arv FROM tallinn_marathon WHERE vanus BETWEEN 18 AND 30 GROUP BY vanus ORDER BY vanus";
+print_r($sql);
 
 // Päringu saatmine andmebaasile
 $result = mysqli_query($yhendus, $sql);
@@ -123,6 +126,7 @@ $result = mysqli_query($yhendus, $sql);
 // SQL päring andmete väljavõtmiseks
 
 $sql = "SELECT nimi FROM tallinn_marathon WHERE sugu = 'Female' AND finish IS NOT NULL ORDER BY RAND() LIMIT 3";
+print_r($sql);
 
 // Päringu saatmine andmebaasile
 $result = mysqli_query($yhendus, $sql);
