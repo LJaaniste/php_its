@@ -27,7 +27,8 @@ $result = mysqli_query($yhendus, $sql);
 
 
       // HTML tabeli väljastamime
-      echo '<table class="table">';
+     // echo '<table class="table">';
+     echo "<table border='1'>";
       echo "<tr><th>ID</th><th>Nimi</th><th>Riik</th></tr>";
 
       
@@ -53,7 +54,7 @@ $result = mysqli_query($yhendus, $sql);
     
 // SQL päring andmete väljavõtmiseks
 //$sql = "SELECT id, nimi, riik, registreerimine, finish FROM tallinn_marathon WHERE riik = 'Finland' AND registreerimine > '2024-03-01' ORDER BY finish ASC";
-$sql = "SELECT id, nimi, riik, registreerimine, finish FROM tallinn_marathon WHERE riik = 'Finland' AND registreerimine > DATE('2024-03-01') ORDER BY finish ASC";
+$sql = "SELECT id, nimi, riik, registreerimine, finish FROM tallinn_marathon WHERE riik = 'Finland' AND registreerimine > DATE('2024-02-28') ORDER BY finish ASC";
 print_r($sql);
 
 // Päringu saatmine andmebaasile
