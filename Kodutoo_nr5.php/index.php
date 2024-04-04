@@ -10,7 +10,7 @@
           
             
             <div style="padding-top: 0px;">
-             <h1><b>Hei, olen</b></h1>
+             <!-- <h1><b>Hei, olen</b></h1>
              <h1 class="mb-3"><b>SinuNimi</b></h1>
              <h5 class="mb-3">Veebiarendaja</h5>
 
