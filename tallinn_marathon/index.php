@@ -33,11 +33,11 @@ $result = mysqli_query($yhendus, $sql);
 
       
       // Andmete väljastamine iga rea kaupa
-      while ($row = mysqli_fetch_assoc($result)) {
+      while ($rida = mysqli_fetch_assoc($result)) {
           echo "<tr>";
-          echo "<td>" . $row['id'] . "</td>";
-          echo "<td>" . $row['nimi'] . "</td>";
-          echo "<td>" . $row['riik'] . "</td>";
+          echo "<td>" . $rida['id'] . "</td>";
+          echo "<td>" . $rida['nimi'] . "</td>";
+          echo "<td>" . $rida['riik'] . "</td>";
           echo "</tr>";
       }
       
@@ -66,13 +66,13 @@ $result = mysqli_query($yhendus, $sql);
       echo "<tr><th>ID</th><th>Nimi</th><th>Riik</th><th>Registreerimine</th><th>Finish</th></tr>";
          
       // Andmete väljastamine iga rea kaupa
-      while ($row = mysqli_fetch_assoc($result)) {
+      while ($rida = mysqli_fetch_assoc($result)) {
           echo "<tr>";
-          echo "<td>" . $row['id'] . "</td>";
-          echo "<td>" . $row['nimi'] . "</td>";
-          echo "<td>" . $row['riik'] . "</td>";
-          echo "<td>" . $row['registreerimine'] . "</td>";
-          echo "<td>" . $row['finish'] . "</td>";
+          echo "<td>" . $rida['id'] . "</td>";
+          echo "<td>" . $rida['nimi'] . "</td>";
+          echo "<td>" . $rida['riik'] . "</td>";
+          echo "<td>" . $rida['registreerimine'] . "</td>";
+          echo "<td>" . $rida['finish'] . "</td>";
           echo "</tr>";
       }
       
@@ -107,10 +107,10 @@ $result = mysqli_query($yhendus, $sql);
     
       // Andmete väljastamine iga rea kaupa
           
-      while ($row = mysqli_fetch_assoc($result)) {
+      while ($rida = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>" . $row['vanus'] . "</td>";
-        echo "<td>" . $row['osalejate_arv'] . "</td>";
+        echo "<td>" . $rida['vanus'] . "</td>";
+        echo "<td>" . $rida['osalejate_arv'] . "</td>";
         echo "</tr>";
       }
       // Tabeli lõpetamine
@@ -139,10 +139,9 @@ $result = mysqli_query($yhendus, $sql);
       
       
       // Andmete väljastamine iga rea kaupa
-      while ($row = mysqli_fetch_assoc($result)) {
+      while ($rida = mysqli_fetch_assoc($result)) {
           echo "<tr>";
-          echo "<td>" . $row['nimi'] . "</td>";
-       
+          echo "<td>" . $rida['nimi'] . "</td>";  
           echo "</tr>";
       }
       
