@@ -26,6 +26,9 @@
         th {
             background-color: #f2f2f2; /* Ülemine rida halli värvi */
         }
+        thead th {
+        height: 50px; 
+        }
         /* Pealkiri ja otsingulahter */
         header {
             display: flex;
@@ -132,45 +135,45 @@
       
 
       <tbody>
+        <?php 
+        
 
-                <?php
+    // Funktsioon, mis tagastab andmed vastavalt lehekülje numbrile ja sordi parameetrile
+    function fetchRestaurants($page, $sort_by, $sort_order, $search_term) {
+    global $yhendus;
+    $offset = ($page - 1) * 10; // Arvutame offseti
+    $query = "SELECT * FROM asutused WHERE nimi LIKE '%$search_term%' OR asukoht LIKE '%$search_term%' ORDER BY $sort_by $sort_order LIMIT 10 OFFSET $offset";
+    $result = mysqli_query($yhendus, $query);
+    return $result;
+}
 
-                // Funktsioon, mis tagastab andmed vastavalt lehekülje numbrile ja sordi parameetrile
-                function fetchRestaurants($page, $sort_by, $sort_order, $search_term) {
-                  global $yhendus;
-                  $offset = ($page - 1) * 10; // Arvutame offseti
-                  //$query = "SELECT * FROM asutused ORDER BY $sort_by $sort_order LIMIT 10 OFFSET $offset"; // Näitame korraga 10 sissekannet alates offsetist
-                  $query = "SELECT * FROM asutused WHERE nimi LIKE '%$search_term%' OR asukoht LIKE '%$search_term%' ORDER BY $sort_by $sort_order LIMIT 10 OFFSET $offset";
-                  $result = mysqli_query($yhendus, $query);
-                  return $result;
-              }
+$sort_by = isset($_GET['sort']) ? $_GET['sort'] : 'nimi';
+$sort_order = isset($_GET['order']) ? $_GET['order'] : 'ASC';
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$search_term = isset($_GET['search']) ? $_GET['search'] : '';
 
-                    // Kui sorteerimisparameeter on määratud, kasuta seda, vastasel juhul kasuta vaikimisi
-                    $sort_by = isset($_GET['sort']) ? $_GET['sort'] : 'nimi';
-                    $sort_order = isset($_GET['order']) ? $_GET['order'] : 'ASC';
-                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                    $search_term = isset($_GET['search']) ? $_GET['search'] : '';
-
-                    // Küsi andmeid andmebaasist
+        // Küsi andmeid andmebaasist
                    // $query = "SELECT * FROM asutused ORDER BY $sort_by ASC LIMIT 10"; // Näitame korraga 10 sissekannet
                     //$result = mysqli_query($yhendus, $query);
-                    $result = fetchRestaurants($page, $sort_by, $sort_order, $search_term);
 
-                    if (mysqli_num_rows($result) > 0) {
+$result = fetchRestaurants($page, $sort_by, $sort_order, $search_term);
+
+            if (mysqli_num_rows($result) > 0) {
                         // Väljasta andmed tabelisse
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo "<tr>";
-                            //echo "<td><a href='#' onclick='openRatingForm(" . $row['id'] . ")'>" . $row['nimi'] . "</a></td>";
-                            echo "<td><a href='#' onclick='openRatingForm(" . $row['id'] . ", \"" . $row['nimi'] . "\")'>" . $row['nimi'] . "</a></td>";
-                            echo "<td>" . $row['asukoht'] . "</td>";
-                            echo "<td>" . $row['keskmine_hinne'] . "</td>";
-                            echo "<td>" . $row['hinnatud_korda'] . "</td>";
-                            echo "</tr>";
-                        }
-                    } else {
-                        echo "<tr><td colspan='4'>Andmeid ei leitud</td></tr>";
-                    }
+                while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                //echo "<td><a href='#' onclick='openRatingForm(" . $row['id'] . ")'>" . $row['nimi'] . "</a></td>";
+                echo "<td><a href='#' onclick='openRatingForm(" . $row['id'] . ", \"" . $row['nimi'] . "\")'>" . $row['nimi'] . "</a></td>";
+                echo "<td>" . $row['asukoht'] . "</td>";
+                echo "<td>" . $row['keskmine_hinne'] . "</td>";
+                echo "<td>" . $row['hinnatud_korda'] . "</td>";
+                echo "</tr>";
+                }
+                  } else {
+                    echo "<tr><td colspan='4'>Andmeid ei leitud</td></tr>";
+                   }
                 ?>
+                
             </tbody>
         </table>
 
@@ -183,10 +186,11 @@
 
         <div class="pagination">
         <?php if ($page > 1): ?>
-                <a href="?sort=<?php echo $sort_by ?>&page=<?php echo $page - 1 ?>">Eelmine</a> |
+                <a href="?sort=<?php echo $sort_by ?>&page=<?php echo $page - 1 ?>"> < Eelmine</a> 
             <?php endif; ?>
             <?php if (mysqli_num_rows($result) == 10): ?>
-            <a href="?sort=<?php echo $sort_by ?>&page=<?php echo $page + 1 ?>">Järgmine</a>
+            <span>&nbsp;</span>
+            <a href="?sort=<?php echo $sort_by ?>&page=<?php echo $page + 1 ?>">Järgmine ></a>
             <?php endif; ?>
         </div>
         </div>
@@ -195,38 +199,19 @@
 
     </main>
 
+    
+   
 
-    <div id="ratingForm" style="display: none;" class="rating-form">
-        <h2>Hinda kohta > <span id="restaurantName"></span></h2>
-        <form action="#" method="post">
-            <label for="name">Sinu nimi:</label><br>
-            <input type="text" id="name" name="name"><br>
-            <label for="comment">Kommentaar:</label><br>
-            <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
-            <label for="rating">Hinnang:</label><br>
-            <div class="rating-stars">
-                <span onclick="setRating(1)">☆</span>
-                <span onclick="setRating(2)">☆</span>
-                <span onclick="setRating(3)">☆</span>
-                <span onclick="setRating(4)">☆</span>
-                <span onclick="setRating(5)">☆</span>
-                <span onclick="setRating(6)">☆</span>
-                <span onclick="setRating(7)">☆</span>
-                <span onclick="setRating(8)">☆</span>
-                <span onclick="setRating(9)">☆</span>
-                <span onclick="setRating(10)">☆</span>
-            </div>
-            <input type="submit" value="Hinda">
-        </form>
-    </div>
+
+
 
     <script>
        function openRatingForm(id, name) {
             document.getElementById('restaurantName').innerText = name;
-            document.getElementById('ratingForm').style.display = 'block';
-            
+            document.getElementById('ratingForm').style.display = 'block';   
         }
-
+        </script>
+    <script>
         function setRating(rating) {
             let stars = document.querySelectorAll('.rating-stars span');
             for (let i = 0; i < stars.length; i++) {
@@ -237,7 +222,8 @@
                 }
             }
         }
-
+        </script>
+        <script>
         // Funktsioon, mis muudab sorteerimissuunda ja värvi märki päises
         document.querySelectorAll('.sortable').forEach(function(header) {
             header.addEventListener('click', function() {
@@ -248,7 +234,8 @@
                 window.location.href = '?sort=' + this.dataset.sort + '&order=' + currentSortOrder;
             });
         });
-
+        </script>
+        <script>
         function searchRestaurants() {
             let searchValue = document.getElementById('searchInput').value;
             window.location.href = '?search=' + searchValue;
