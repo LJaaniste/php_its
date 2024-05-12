@@ -106,7 +106,7 @@
       <br>
         <table border="1" id="restaurantTable">
             <thead>
-                <tr>
+               <!-- <tr>
                 <th class="sortable" data-sort="nimi">
                   Nimi
                   <a href="?sort=nimi&order=asc"><i class="bi bi-caret-up-fill"></i></a>
@@ -130,12 +130,47 @@
                   <a href="?sort=hinnatud_korda&order=asc"><i class="bi bi-caret-up-fill"></i></a>
                   <a href="?sort=hinnatud_korda&order=desc"><i class="bi bi-caret-down-fill"></i></a>
                 </th>        
-        </tr>
-      </thead>
-      
+        </tr> --> 
 
-      <tbody>
-        <?php 
+        
+ <!--Algseadistus--> 
+ <?php 
+ $sort_by = isset($_GET['sort']) ? $_GET['sort'] : '';
+ $sort_order = isset($_GET['order']) ? $_GET['order'] : 'ASC';
+ ?>
+
+<?php 
+ //$next_page = $page + 1;
+ //$prev_page = $page - 1;
+ ?>
+ 
+   
+ <th>
+    <a href="?sort=nimi&order=<?php echo $sort_by == 'nimi' && $sort_order == 'ASC' ? 'DESC' : 'ASC'; ?>">
+        Nimi <?php if ($sort_by == 'nimi') { echo $sort_order == 'ASC' ? '▲' : '▼'; } else { echo '▼▲'; } ?>
+    </a>
+</th>
+    <th>
+    <a href="?sort=asukoht&order=<?php echo $sort_by == 'asukoht' && $sort_order == 'ASC' ? 'DESC' : 'ASC'; ?>">
+        Asukoht <?php if ($sort_by == 'asukoht') { echo $sort_order == 'ASC' ? '▲' : '▼'; } else { echo '▲▼'; } ?>
+    </a>
+    </th>
+    <th>
+    <a href="?sort=keskmine_hinne&order=<?php echo $sort_by == 'keskmine_hinne' && $sort_order == 'ASC' ? 'DESC' : 'ASC'; ?>">
+        Keskmine hinne <?php if ($sort_by == 'keskmine_hinne') { echo $sort_order == 'ASC' ? '▲' : '▼'; } else { echo '▲▼'; } ?>
+    </a>
+    </th>
+    <th>
+    <a href="?sort=hinnatud_korda&order=<?php echo $sort_by == 'hinnatud_korda' && $sort_order == 'ASC' ? 'DESC' : 'ASC'; ?>">
+        Hinnatud (korda) <?php if ($sort_by == 'hinnatud_korda') { echo $sort_order == 'ASC' ? '▲' : '▼'; } else { echo '▲▼'; } ?>
+    </a>
+    </th>
+   
+    
+    </thead>
+    <tbody>
+        
+      <?php 
         
 
     // Funktsioon, mis tagastab andmed vastavalt lehekülje numbrile ja sordi parameetrile
@@ -152,9 +187,7 @@ $sort_order = isset($_GET['order']) ? $_GET['order'] : 'ASC';
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $search_term = isset($_GET['search']) ? $_GET['search'] : '';
 
-        // Küsi andmeid andmebaasist
-                   // $query = "SELECT * FROM asutused ORDER BY $sort_by ASC LIMIT 10"; // Näitame korraga 10 sissekannet
-                    //$result = mysqli_query($yhendus, $query);
+        
 
 $result = fetchRestaurants($page, $sort_by, $sort_order, $search_term);
 
