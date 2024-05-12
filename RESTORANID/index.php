@@ -16,7 +16,7 @@
         table {
             width: 80%; /* Tabeli laius */
             margin: 0 auto; /* Tabel keskele */
-            border-collapse: collapse; /* Ühenda lahtrite piirjooned */
+            border-collapse: collapse; /* Lahtrite piirjooned */
         }
         th, td {
             padding: 8px; /* Lahtri polstri suurus */
