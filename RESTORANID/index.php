@@ -112,20 +112,20 @@
 
                 <th class="sortable" data-sort="asukoht">
                   Asukoht
-                  <a href="?sort=nimi&order=asc"><i class="bi bi-caret-up-fill"></i></a>
-                  <a href="?sort=nimi&order=desc"><i class="bi bi-caret-down-fill"></i></a>
+                  <a href="?sort=asukoht&order=asc"><i class="bi bi-caret-up-fill"></i></a>
+                  <a href="?sort=asukoht&order=desc"><i class="bi bi-caret-down-fill"></i></a>
                 </th>
 
                 <th class="sortable" data-sort="keskmine_hinne">
                   Keskmine hinne
-                  <a href="?sort=nimi&order=asc"><i class="bi bi-caret-up-fill"></i></a>
-                  <a href="?sort=nimi&order=desc"><i class="bi bi-caret-down-fill"></i></a>
+                  <a href="?sort=keskmine_hinne&order=asc"><i class="bi bi-caret-up-fill"></i></a>
+                  <a href="?sort=keskmine_hinne&order=desc"><i class="bi bi-caret-down-fill"></i></a>
                 </th>
 
                 <th class="sortable" data-sort="hinnatud_korda">
-                  Hinnatud (kokku)
-                  <a href="?sort=nimi&order=asc"><i class="bi bi-caret-up-fill"></i></a>
-                  <a href="?sort=nimi&order=desc"><i class="bi bi-caret-down-fill"></i></a>
+                  Hinnatud (korda)
+                  <a href="?sort=hinnatud_korda&order=asc"><i class="bi bi-caret-up-fill"></i></a>
+                  <a href="?sort=hinnatud_korda&order=desc"><i class="bi bi-caret-down-fill"></i></a>
                 </th>        
         </tr>
       </thead>
