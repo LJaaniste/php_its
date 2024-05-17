@@ -52,6 +52,8 @@
         <h5 class="card-title">'.$rida['album'].'</h5>
         <p class="card-text">'.$rida['hind'].'€</p>
         <a href="#" class="btn btn-danger">Osta</a>
+        <a href="index.php?del=kustuta&id=' .$rida['id']. '" class="btn btn-warning">"Kustuta"</a>
+        <a href="edit.php?del=' .$rida['id']. '" class="btn btn-warning">"Kustuta"</a>
       </div>
     </div>
   </div>
