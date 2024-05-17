@@ -4,7 +4,7 @@
       <div class="container">
       <h1>Admin</h1><br>
 
-    <h2>Muuda Avalehe sisu</h2>
+    <h2>Avalehe sisu</h2>
 
     <?php
 if (isset($_GET['ok'])) {
@@ -14,24 +14,24 @@ if (isset($_GET['ok'])) {
     ';
 }
 
-
 ?>
 
-<form action=""method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data">
 
-    <label for="pealkiri">Pealkiri:</label>
-    <input type="text" name="pealkiri" required><br>
+    <label for="pealkiri1">Ülemine pealkiri:</label>
+    <input type="text" name="pealkiri1" required><br>
+
+    <label for="pealkiri2">Alumine pealkiri:</label>
+    <input type="text" name="pealkiri2" required><br>
 
     <label for="alapealkiri">Alapealkiri:</label>
     <input type="text" name="alapealkiri" required><br>
 
     <label for="tekst">Tekst:</label>
-    <textarea name="tekst"></textarea><br>
+    <textarea name="tekst" required></textarea><br>
 
-    <label for="lisapilt">Lisa pilt</label>
-    <input type="file" name="lisapilt">
-
-  
+    <label for="pilt">Lisa pilt</label>
+    <input type="file" name="pilt" required>
 
     <input class="btn btn-success" type="submit" value="Salvesta">
 </form>
@@ -39,53 +39,39 @@ if (isset($_GET['ok'])) {
 
 
 <?php
-if (isset($_POST['palka'])) {
-    
-   $uus_pealkiri = $_POST["pealkiri"];
-   $uus_alapealkiri = $_POST["alapealkiri"];
-      $uus_tekst = $_POST["tekst"];
-      $uus_pilt = $_POST["pilt"];
+     //if (isset($_POST['submit'])) {
 
-      $rida = "$pealkiri | $alapealkiri | $tekst | $lisapilt\n";
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-      file_put_contents("palka.txt", $rida, FILE_APPEND);
-     
+            $pealkiri1 = $_POST["pealkiri1"];
+            $pealkiri2 = $_POST["pealkiri2"];
+            $alapealkiri = $_POST["alapealkiri"];
+            $tekst = $_POST["tekst"];
+            $pilt = $_FILES['pilt']['name'];
+            
+           // move_uploaded_file($_FILES['pilt']['tmp_name'], "uploads/" . $_FILES['pilt']['name']);
+           move_uploaded_file($_FILES['pilt']['tmp_name'], "" . $_FILES['pilt']['name']);
+            
 
-  
-   
-    header('Location: index.php');
-    
-   
-}
+            $vana_rida = file("tutvustus.txt", FILE_IGNORE_NEW_LINES);
+            
+            //$lines = file("tutvustus.txt", FILE_IGNORE_NEW_LINES);
 
+            $uus_rida = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt";
 
-?>
+            //$new_line = "$pealkiri1 | $pealkiri2 | $alapealkiri | $tekst | $pilt";
 
-<?php
-if (isset($_POST['cv'])) {
-    
-   $uus_pealkiri = $_POST["pealkiri"];
-   $uus_alapealkiri = $_POST["alapealkiri"];
-      $uus_tekst = $_POST["tekst"];
-      $uus_pilt = $_POST["pilt"];
+            $vana_rida[0] = $uus_rida;
 
-      $rida = "$pealkiri | $alapealkiri | $tekst | $lisapilt\n";
-
-     
-      file_put_contents("minucv.txt", $rida, FILE_APPEND);
-
-  
-   
-    header('Location: index.php');
-    
-   
-}
-
+           // $lines[0] = $new_line;
+            
+            file_put_contents("tutvustus.txt", implode("\n", $lines));
+            
+            header('Location: index.php?ok');
+            exit;
+        }
 
 ?>
-
-
-
 
 
 </div> 
