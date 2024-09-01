@@ -179,6 +179,7 @@
     global $yhendus;
     $offset = ($page - 1) * 10; // Arvutame offseti
     $query = "SELECT * FROM asutused WHERE nimi LIKE '%$search_term%' OR asukoht LIKE '%$search_term%' ORDER BY $sort_by $sort_order LIMIT 10 OFFSET $offset";
+    print_r($query);
     $result = mysqli_query($yhendus, $query);
     return $result;
 }
