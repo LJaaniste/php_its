@@ -50,6 +50,7 @@
             color: #ddd;
             cursor: pointer;
         }
+        
         .rating-stars span:hover,
         .rating-stars span.active {
             color: #4CAF50;
@@ -135,8 +136,8 @@
         
  <!--Algseadistus--> 
  <?php 
- $sort_by = isset($_GET['sort']) ? $_GET['sort'] : '';
- $sort_order = isset($_GET['order']) ? $_GET['order'] : 'ASC';
+    $sort_by = isset($_GET['sort']) ? $_GET['sort'] : '';
+    $sort_order = isset($_GET['order']) ? $_GET['order'] : 'ASC';
  ?>
 
 <?php 
@@ -145,11 +146,11 @@
  ?>
  
    
- <th>
+    <th>
     <a href="?sort=nimi&order=<?php echo $sort_by == 'nimi' && $sort_order == 'ASC' ? 'DESC' : 'ASC'; ?>">
         Nimi <?php if ($sort_by == 'nimi') { echo $sort_order == 'ASC' ? '▲' : '▼'; } else { echo '▼▲'; } ?>
     </a>
-</th>
+    </th>
     <th>
     <a href="?sort=asukoht&order=<?php echo $sort_by == 'asukoht' && $sort_order == 'ASC' ? 'DESC' : 'ASC'; ?>">
         Asukoht <?php if ($sort_by == 'asukoht') { echo $sort_order == 'ASC' ? '▲' : '▼'; } else { echo '▲▼'; } ?>
