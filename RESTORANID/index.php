@@ -107,8 +107,8 @@
       <br>
         <table border="1" id="restaurantTable">
             <thead>
-               <!-- <tr>
-                <th class="sortable" data-sort="nimi">
+               <tr>
+               <!--  <th class="sortable" data-sort="nimi">
                   Nimi
                   <a href="?sort=nimi&order=asc"><i class="bi bi-caret-up-fill"></i></a>
                   <a href="?sort=nimi&order=desc"><i class="bi bi-caret-down-fill"></i></a>
@@ -130,8 +130,8 @@
                   Hinnatud (korda)
                   <a href="?sort=hinnatud_korda&order=asc"><i class="bi bi-caret-up-fill"></i></a>
                   <a href="?sort=hinnatud_korda&order=desc"><i class="bi bi-caret-down-fill"></i></a>
-                </th>        
-        </tr> --> 
+                </th>  -->        
+        </tr> 
 
         
  <!--Algseadistus--> 
